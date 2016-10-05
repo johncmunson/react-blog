@@ -13,6 +13,12 @@ class ProfileContainer extends React.Component {
             userInfo: {},
         }
     }
+
+    componentDidUpdate(){
+        this.setState({
+            userInfo: data.data
+        })
+    }
     componentDidMount(){
         getUserInfo(this.props.params.userid).then(function(data){
             this.setState({
