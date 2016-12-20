@@ -3,6 +3,7 @@ module.exports = {
   output: {
     filename: "public/bundle.js"
   },
+  //devtool: "cheap-eval-source-map",
 
   module: {
     loaders: [

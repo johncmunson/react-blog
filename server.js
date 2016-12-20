@@ -4,7 +4,7 @@ var express = require('express'),
     _ = require('lodash'),
     cors = require('cors'),
     app = express(),
-    port = 8080;
+    port = 8000
 
 
 app.use(cors());
@@ -12,10 +12,10 @@ app.use(session({
     secret: 'cDevMountainIsfuLLofSecrets',
     resave: false,
     saveUninitialized: true
-}));
+}))
 
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json())
 
 var data =
     [
@@ -109,7 +109,7 @@ var usersBlogData = [
 
     }
 
-];
+]
 
 function findUser(array, value) {
     var index = array.map(function(arr) {
@@ -122,23 +122,20 @@ function findUser(array, value) {
 
 app.get('/api/blogData', function(req, res) {
     res.send(data);
-});
+})
 
 app.get('/api/userInfo/:id', function(req, res) {
     var userId = req.params.id;
     var userObj = findUser(usersBlogData, userId);
     res.send(userObj);
 
-});
+})
 
 app.get('/api/usersBlogData', function(req, res) {
     res.send(usersBlogData);
-});
+})
 
 
 app.listen(port, function () {
     console.log('Listening on port', port);
-});
-
-
-
+})
